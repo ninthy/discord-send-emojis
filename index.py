@@ -1,8 +1,6 @@
 import os
 from PIL import Image, ImageSequence
 import discord
-import gifmaker
-from imgpy import Img
 from config import TOKEN
 
 client = discord.Client()
@@ -25,7 +23,7 @@ async def on_message(message):
                 im.save(os.path.join("emojis", filename))
             await message.delete()
             await message.channel.send(file=discord.File(os.path.join('emojis', filename)))
-
+            print(f"used :{file}:")
 
 
 client.run(TOKEN, bot=False)
